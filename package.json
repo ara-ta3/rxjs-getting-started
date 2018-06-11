@@ -10,7 +10,7 @@
     "tsc/watch": "tsc --project . --watch"
   },
   "dependencies": {
-    "rxjs": "^6.2.0",
-    "typescript": "^2.9.1"
+    "rxjs": "6.2.0",
+    "typescript": "2.9.1"
   }
 }
