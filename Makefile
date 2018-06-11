@@ -8,7 +8,7 @@ compile:
 	$(YARN) run tsc
 
 run: compile
-	$(NODE) dist/main.js
+	$(NODE) src/main.js
 
 compile/watch:
 	$(YARN) run tsc/watch

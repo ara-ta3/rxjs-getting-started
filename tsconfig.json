@@ -1,12 +1,16 @@
 {
     "compilerOptions": {
-        "module": "system",
+        "module": "commonjs",
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "outFile": "dist/main.js",
         "sourceMap": true,
-         "target": "es2015"
+        "target": "es2015",
+        "lib": [
+            "es2016",
+            "dom"
+        ],
+        "moduleResolution": "node"
     },
     "include": [
         "src/**/*"

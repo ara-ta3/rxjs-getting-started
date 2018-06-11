@@ -1,3 +1,6 @@
+import { from, Observable, Subject, BehaviorSubject, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 function hoge(): Promise<string> {
     return new Promise((resolve: Function, reject: Function) => {
         reject(new Error("hoge"));
@@ -11,12 +14,16 @@ function fuga(): Promise<string> {
 }
 
 async function main() {
-    const a1 = await hoge();
-    const a2 = await fuga();
-    const x = await hoge()
-        .then((v) => console.log(v))
-        .catch((e: Error) => console.error(e)); // catchがないとUnhandledPromiseRejectionWarningが出る
-    console.log(x);
+    const s = new Subject<number>();
+    from(hoge()).subscribe((v) => {
+        console.log(v);
+    })
+    s.subscribe((v) => {
+        console.log(v);
+    })
+    s.next(1);
+    s.next(2);
+    s.next(3);
 }
 
 main();
